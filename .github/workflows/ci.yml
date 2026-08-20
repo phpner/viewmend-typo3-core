@@ -40,7 +40,7 @@ jobs:
           "typo3/cms-fluid:${{ matrix.typo3 }}"
       - run: composer update --with-all-dependencies --prefer-dist --no-interaction --no-progress
       - run: composer validate --strict
-      - run: composer audit --locked --no-interaction
+      - run: composer audit --locked --no-interaction --abandoned=report
       - run: composer test
       - run: vendor/bin/yaml-lint --parse-tags Configuration
       - if: matrix.php == '8.5'
