@@ -5,8 +5,8 @@ ViewMend TYPO3 extensions. It owns the top-level **ViewMend** backend entry, its
 Dashboard catalogue, and the contract used by installed products to describe
 themselves.
 
-It does not provide Site Tracker, InboxMend, Auto-replies, cloud transport, or
-form handling. Products remain independent Composer packages and repositories.
+It does not contain product-specific form, mail, monitoring, or cloud logic.
+Products remain independent Composer packages and repositories.
 
 ## Install
 

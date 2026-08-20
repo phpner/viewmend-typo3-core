@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: PHP ${{ matrix.php }} / TYPO3 ${{ matrix.typo3 }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - php: '8.2'
+            typo3: '~13.4.0'
+          - php: '8.4'
+            typo3: '~13.4.0'
+          - php: '8.2'
+            typo3: '~14.3.0'
+          - php: '8.5'
+            typo3: '~14.3.0'
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+          tools: composer:v2
+      - name: Select TYPO3 version
+        run: >-
+          composer require --no-update --no-interaction
+          "typo3/cms-backend:${{ matrix.typo3 }}"
+          "typo3/cms-core:${{ matrix.typo3 }}"
+          "typo3/cms-extbase:${{ matrix.typo3 }}"
+          "typo3/cms-fluid:${{ matrix.typo3 }}"
+      - run: composer update --with-all-dependencies --prefer-dist --no-interaction --no-progress
+      - run: composer validate --strict
+      - run: composer audit --locked --no-interaction
+      - run: composer test
+      - run: vendor/bin/yaml-lint --parse-tags Configuration
+      - if: matrix.php == '8.5'
+        run: composer analyse
+      - if: matrix.php == '8.5'
+        run: composer lint

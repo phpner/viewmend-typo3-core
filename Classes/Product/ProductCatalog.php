@@ -54,26 +54,6 @@ final readonly class ProductCatalog
     private function officialProducts(): array
     {
         return [
-            'site-tracker' => new ProductDefinition(
-                'site-tracker',
-                'Site Tracker',
-                'Monitor important public pages after TYPO3 content changes and deployments.',
-                'viewmend/typo3-site-tracker',
-                'viewmend_site_tracker',
-                'viewmend_site_tracker',
-                'Monitoring',
-                20,
-            ),
-            'inboxmend' => new ProductDefinition(
-                'inboxmend',
-                'InboxMend',
-                'Store, triage, assign, and audit form submissions locally.',
-                'viewmend/typo3-inboxmend',
-                'inboxmend',
-                'inboxmend',
-                'Submissions',
-                30,
-            ),
             'auto-replies' => new ProductDefinition(
                 'auto-replies',
                 'Auto-replies',
@@ -82,7 +62,7 @@ final readonly class ProductCatalog
                 'viewmend_auto_replies',
                 'viewmend_auto_replies',
                 'Messaging',
-                40,
+                10,
             ),
         ];
     }

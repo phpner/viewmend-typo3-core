@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0 - Unreleased
+## 1.0.0 - 2026-08-20
 
 - Shared ViewMend backend entry for TYPO3 13.4 and 14.3.
 - Distinctive theme-safe ViewMend product mark for the TYPO3 module menu.

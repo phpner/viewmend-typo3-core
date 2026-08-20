@@ -50,4 +50,13 @@ final class DashboardContractTest extends TestCase
         self::assertStringContainsString('fill="url(#viewmend-vm-m)"', $icon);
         self::assertStringNotContainsString('currentColor', $icon);
     }
+
+    public function testInitialPublicCatalogContainsOnlyAutoReplies(): void
+    {
+        $catalog = file_get_contents(dirname(__DIR__, 2) . '/Classes/Product/ProductCatalog.php');
+
+        self::assertIsString($catalog);
+        self::assertStringContainsString("'viewmend/typo3-auto-replies'", $catalog);
+        self::assertSame(1, substr_count($catalog, 'new ProductDefinition('));
+    }
 }
