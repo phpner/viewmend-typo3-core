@@ -10,9 +10,18 @@
     "typo3/cms-extbase": "~13.4.0 || ~14.3.0",
     "typo3/cms-fluid": "~13.4.0 || ~14.3.0"
   },
+  "require-dev": {
+    "phpstan/phpstan": "^2.1",
+    "phpunit/phpunit": "^11.5"
+  },
   "autoload": {
     "psr-4": {
       "ViewMend\\Typo3Core\\": "Classes/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ViewMend\\Typo3Core\\Tests\\": "Tests/"
     }
   },
   "extra": {
@@ -22,8 +31,24 @@
   },
   "archive": {
     "exclude": [
+      "/.phpstan-cache",
+      "/.phpunit.cache",
+      "/composer.lock",
+      "/phpstan.neon",
+      "/phpunit.xml",
       "/Tests",
       "/vendor"
     ]
+  },
+  "scripts": {
+    "test": "phpunit --configuration phpunit.xml",
+    "analyse": "phpstan analyse -c phpstan.neon --memory-limit=1G"
+  },
+  "config": {
+    "allow-plugins": {
+      "typo3/class-alias-loader": true,
+      "typo3/cms-composer-installers": true
+    },
+    "sort-packages": true
   }
 }

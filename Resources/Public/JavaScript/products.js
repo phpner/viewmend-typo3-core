@@ -22,7 +22,7 @@ if (root && root.dataset.ready !== '1') {
         feedback.textContent = `${button.dataset.product || 'Product'} installation command copied.`;
       }
       window.setTimeout(() => {
-        button.textContent = 'Copy install command';
+        button.textContent = 'Copy command';
       }, 1800);
     } catch (_error) {
       const input = button.closest('[data-product-row]')?.querySelector('[data-install-command]');

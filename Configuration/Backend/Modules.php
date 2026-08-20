@@ -2,42 +2,35 @@
 
 declare(strict_types=1);
 
-use ViewMend\Typo3Core\Backend\Controller\ProductsController;
+use ViewMend\Typo3Core\Backend\Controller\DashboardController;
 
 return [
     'viewmend' => [
-        'parent' => 'web',
-        'position' => ['after' => 'web_list'],
-        'access' => 'user',
+        'position' => ['after' => 'site'],
         'workspaces' => 'live',
-        'path' => '/module/web/viewmend',
         'iconIdentifier' => 'viewmend-product-mark',
         'labels' => [
             'title' => 'ViewMend',
-            'description' => 'Installed ViewMend products and compatible additions.',
+            'description' => 'Independent ViewMend products for TYPO3.',
             'shortDescription' => 'Website operations',
         ],
-        'inheritNavigationComponentFromMainModule' => false,
-        'appearance' => [
-            'dependsOnSubmodules' => true,
-        ],
     ],
-    'viewmend_products' => [
+    'viewmend_dashboard' => [
         'parent' => 'viewmend',
         'position' => ['before' => '*'],
         'access' => 'user',
         'workspaces' => 'live',
-        'path' => '/module/web/viewmend/products',
+        'path' => '/module/viewmend/dashboard',
         'iconIdentifier' => 'viewmend-product-mark',
         'labels' => [
-            'title' => 'Products',
+            'title' => 'Dashboard',
             'description' => 'Installed and available ViewMend products.',
             'shortDescription' => 'Product catalog',
         ],
         'extensionName' => 'ViewMendCore',
         'inheritNavigationComponentFromMainModule' => false,
         'controllerActions' => [
-            ProductsController::class => ['index'],
+            DashboardController::class => ['index'],
         ],
     ],
 ];

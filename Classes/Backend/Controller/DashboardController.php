@@ -13,7 +13,7 @@ use TYPO3\CMS\Core\Page\PageRenderer;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 use ViewMend\Typo3Core\Product\ProductCatalog;
 
-final class ProductsController extends ActionController
+final class DashboardController extends ActionController
 {
     public function __construct(
         private readonly ModuleTemplateFactory $moduleTemplateFactory,
@@ -26,7 +26,7 @@ final class ProductsController extends ActionController
         $products = $this->catalog->products($this->backendUser());
         $installed = count(array_filter($products, static fn(array $product): bool => (bool) $product['installed']));
         $module = $this->moduleTemplateFactory->create($this->request);
-        $module->setTitle('ViewMend', 'Products');
+        $module->setTitle('ViewMend', 'Dashboard');
         $module->assignMultiple([
             'products' => $products,
             'installedCount' => $installed,
@@ -38,7 +38,7 @@ final class ProductsController extends ActionController
             JavaScriptModuleInstruction::create('@viewmend/core/products.js'),
         );
 
-        return $module->renderResponse('Products/Index');
+        return $module->renderResponse('Dashboard/Index');
     }
 
     private function backendUser(): BackendUserAuthentication

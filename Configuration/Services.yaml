@@ -7,7 +7,7 @@ services:
   ViewMend\Typo3Core\:
     resource: '../Classes/*'
 
-  ViewMend\Typo3Core\Backend\Controller\ProductsController:
+  ViewMend\Typo3Core\Backend\Controller\DashboardController:
     public: true
 
   ViewMend\Typo3Core\Product\ProductCatalog:
