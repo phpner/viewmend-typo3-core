@@ -6,5 +6,9 @@
 - Distinctive theme-safe ViewMend product mark for the TYPO3 module menu.
 - Product catalog with installed, access-restricted, and available states.
 - Public `ProductProviderInterface` and `viewmend.product` service tag.
+- Permission-aware `ProductDashboardProviderInterface` for optional product
+  metrics without coupling Core to product repositories.
 - Safe Composer-mode installation guidance without backend dependency mutation.
+- Installed-first Dashboard, status filters, dedicated product icons, and an
+  accessible installation dialog.
 - Replace the generic module mark with the official ViewMend VM gradient logo.

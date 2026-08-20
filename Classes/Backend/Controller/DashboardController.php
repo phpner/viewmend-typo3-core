@@ -24,13 +24,17 @@ final class DashboardController extends ActionController
     protected function indexAction(): ResponseInterface
     {
         $products = $this->catalog->products($this->backendUser());
-        $installed = count(array_filter($products, static fn(array $product): bool => (bool) $product['installed']));
+        $installedProducts = array_values(array_filter($products, static fn(array $product): bool => (bool) $product['installed']));
+        $availableProducts = array_values(array_filter($products, static fn(array $product): bool => !(bool) $product['installed']));
         $module = $this->moduleTemplateFactory->create($this->request);
         $module->setTitle('ViewMend', 'Dashboard');
         $module->assignMultiple([
             'products' => $products,
-            'installedCount' => $installed,
-            'availableCount' => count($products) - $installed,
+            'installedProducts' => $installedProducts,
+            'availableProducts' => $availableProducts,
+            'installedCount' => count($installedProducts),
+            'availableCount' => count($availableProducts),
+            'productCount' => count($products),
             'composerMode' => Environment::isComposerMode(),
         ]);
         $this->pageRenderer->addCssFile('EXT:viewmend_core/Resources/Public/Css/backend.css');

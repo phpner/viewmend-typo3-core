@@ -1,54 +1,173 @@
+<html
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:be="http://typo3.org/ns/TYPO3/CMS/Backend/ViewHelpers"
+    xmlns:core="http://typo3.org/ns/TYPO3/CMS/Core/ViewHelpers"
+    data-namespace-typo3-fluid="true"
+>
 <div class="vm-products" data-viewmend-products>
-    <header class="vm-products__header">
-        <div>
-            <h1>ViewMend Dashboard</h1>
-            <p>Open installed products or add another capability. Each product is installed, updated, and released independently.</p>
+    <section class="vm-products__panel" aria-labelledby="vm-products-title">
+        <header class="vm-products__header">
+            <h1 id="vm-products-title">Products</h1>
+            <p>Open what is already running or add a new capability to this TYPO3 project.</p>
+        </header>
+
+        <nav class="vm-products__filters" aria-label="Filter products">
+            <button type="button" class="vm-filter is-active" data-product-filter="all" aria-pressed="true">
+                All <span aria-hidden="true">·</span> {productCount}
+            </button>
+            <button type="button" class="vm-filter" data-product-filter="installed" aria-pressed="false">
+                Installed <span aria-hidden="true">·</span> {installedCount}
+            </button>
+            <button type="button" class="vm-filter" data-product-filter="available" aria-pressed="false">
+                Available <span aria-hidden="true">·</span> {availableCount}
+            </button>
+        </nav>
+
+        <div class="vm-products__body">
+            <section class="vm-product-group" data-product-group="installed" aria-labelledby="vm-installed-title">
+                <div class="vm-product-group__heading">
+                    <h2 id="vm-installed-title">Your products</h2>
+                    <p>Ready to use from the TYPO3 navigation.</p>
+                </div>
+
+                <f:if condition="{installedCount}">
+                    <f:then>
+                        <div class="vm-installed-products">
+                            <f:for each="{installedProducts}" as="product">
+                                <article class="vm-installed-product" data-product-item data-product-status="installed">
+                                    <div class="vm-installed-product__main">
+                                        <span class="vm-product-icon vm-product-icon--{product.identifier}" aria-hidden="true">
+                                            <core:icon identifier="{product.iconIdentifier}" size="large" />
+                                        </span>
+                                        <div class="vm-installed-product__copy">
+                                            <div class="vm-installed-product__title">
+                                                <h3>{product.title}</h3>
+                                                <span class="vm-status vm-status--{product.status}">{product.statusLabel}</span>
+                                            </div>
+                                            <p>{product.description}</p>
+                                            <div class="vm-installed-product__meta">
+                                                <f:if condition="{product.versionLabel}"><span>{product.versionLabel}</span></f:if>
+                                                <f:for each="{product.dashboard.metadata}" as="metadata"><span>{metadata}</span></f:for>
+                                                <code>{product.composerPackage}</code>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <f:if condition="{product.dashboard.metrics}">
+                                        <dl class="vm-installed-product__metrics">
+                                            <f:for each="{product.dashboard.metrics}" as="metric">
+                                                <div>
+                                                    <dt>{metric.label}</dt>
+                                                    <dd>{metric.value}</dd>
+                                                </div>
+                                            </f:for>
+                                        </dl>
+                                    </f:if>
+
+                                    <div class="vm-installed-product__action">
+                                        <f:if condition="{product.accessible}">
+                                            <f:then>
+                                                <f:be.link route="{product.moduleIdentifier}" class="vm-button vm-button--primary">
+                                                    Open {product.title}<span aria-hidden="true">→</span>
+                                                </f:be.link>
+                                            </f:then>
+                                            <f:else>
+                                                <span class="vm-access-note">Ask an administrator for module access.</span>
+                                            </f:else>
+                                        </f:if>
+                                    </div>
+                                </article>
+                            </f:for>
+                        </div>
+                    </f:then>
+                    <f:else>
+                        <div class="vm-products__empty vm-products__empty--installed" data-product-empty-state="installed">
+                            <p>No ViewMend products are installed yet.</p>
+                        </div>
+                    </f:else>
+                </f:if>
+            </section>
+
+            <section class="vm-product-group vm-product-group--available" data-product-group="available" aria-labelledby="vm-available-title">
+                <div class="vm-product-group__heading">
+                    <h2 id="vm-available-title">Explore products</h2>
+                    <p>Each product is installed and updated independently.</p>
+                </div>
+
+                <div class="vm-product-cards">
+                    <f:for each="{availableProducts}" as="product">
+                        <article class="vm-product-card" data-product-item data-product-status="available">
+                            <div class="vm-product-card__header">
+                                <span class="vm-product-icon vm-product-icon--{product.identifier}" aria-hidden="true">
+                                    <core:icon identifier="{product.iconIdentifier}" size="large" />
+                                </span>
+                                <div>
+                                    <h3>{product.title}</h3>
+                                    <p class="vm-product-card__category">{product.category}</p>
+                                </div>
+                            </div>
+                            <p class="vm-product-card__description">{product.description}</p>
+                            <div class="vm-product-card__footer">
+                                <code>{product.composerPackage}</code>
+                                <f:if condition="{product.installable}">
+                                    <f:then>
+                                        <button
+                                            type="button"
+                                            class="vm-button vm-button--secondary"
+                                            data-open-install
+                                            data-product-title="{product.title}"
+                                            data-install-command="{product.installCommand}"
+                                        >Install steps</button>
+                                    </f:then>
+                                    <f:else>
+                                        <span class="vm-planned-state">In development</span>
+                                    </f:else>
+                                </f:if>
+                            </div>
+                        </article>
+                    </f:for>
+                </div>
+            </section>
+
+            <div class="vm-products__no-results" data-products-no-results hidden>
+                No products in this view.
+            </div>
+
+            <p class="vm-products__note">
+                <f:if condition="{composerMode}">
+                    <f:then><strong>Installation stays explicit.</strong> ViewMend never changes Composer dependencies from a browser request.</f:then>
+                    <f:else><strong>Classic mode.</strong> Install extensions through TYPO3's Extension Manager; installed products then appear here automatically.</f:else>
+                </f:if>
+            </p>
         </div>
-        <dl class="vm-products__counts" aria-label="Product status">
-            <div><dt>Installed</dt><dd>{installedCount}</dd></div>
-            <div><dt>Available</dt><dd>{availableCount}</dd></div>
-        </dl>
-    </header>
+    </section>
 
-    <div class="vm-products__intro">
-        <strong>Product catalog</strong>
-        <p>Only installed products appear in the TYPO3 navigation.</p>
-    </div>
+    <dialog class="vm-install-dialog" data-install-dialog aria-labelledby="vm-install-dialog-title">
+        <header class="vm-install-dialog__header">
+            <h2 id="vm-install-dialog-title" data-install-title>Install product</h2>
+            <button type="button" class="vm-install-dialog__close" data-close-install aria-label="Close installation steps">×</button>
+        </header>
+        <div class="vm-install-dialog__body">
+            <f:if condition="{composerMode}">
+                <f:then>
+                    <p class="vm-install-dialog__step">1 <span aria-hidden="true">·</span> Add the package</p>
+                    <div class="vm-install-dialog__command">
+                        <code data-install-command-text></code>
+                        <button type="button" class="vm-install-dialog__copy" data-copy-install aria-label="Copy Composer command">
+                            <core:icon identifier="viewmend-copy-command" size="small" />
+                        </button>
+                    </div>
+                    <p class="vm-install-dialog__step">2 <span aria-hidden="true">·</span> Register the extension</p>
+                    <code class="vm-install-dialog__setup">vendor/bin/typo3 extension:setup</code>
+                    <p class="vm-install-dialog__note">After setup, reload TYPO3. The Dashboard detects installed ViewMend extensions; products using the shared contract also add their own navigation entry.</p>
+                </f:then>
+                <f:else>
+                    <p class="vm-install-dialog__note">Open TYPO3's Extension Manager, install the extension, and return to this Dashboard.</p>
+                </f:else>
+            </f:if>
+        </div>
+    </dialog>
 
-    <ul class="vm-products__list">
-        <f:for each="{products}" as="product">
-            <li class="vm-product" data-product-row data-status="{product.status}">
-                <div class="vm-product__copy">
-                    <h2>{product.title}</h2>
-                    <p>{product.description}</p>
-                    <small>{product.category} · <code>{product.composerPackage}</code></small>
-                </div>
-                <span class="vm-product__state vm-product__state--{product.status}">{product.statusLabel}</span>
-                <div class="vm-product__actions">
-                    <f:if condition="{product.accessible}">
-                        <f:then>
-                            <f:be.link route="{product.moduleIdentifier}" class="btn btn-primary">Open</f:be.link>
-                        </f:then>
-                        <f:else>
-                            <f:if condition="{product.installed}">
-                                <f:then><span class="text-muted">Ask an administrator for module access.</span></f:then>
-                                <f:else>
-                                    <input class="vm-product__command" data-install-command type="text" readonly value="{product.installCommand}" aria-label="Install command for {product.title}" />
-                                    <button type="button" class="btn btn-default" data-copy-command data-command="{product.installCommand}" data-product="{product.title}">Copy command</button>
-                                </f:else>
-                            </f:if>
-                        </f:else>
-                    </f:if>
-                </div>
-            </li>
-        </f:for>
-    </ul>
-
-    <p class="vm-products__note">
-        <f:if condition="{composerMode}">
-            <f:then><strong>Installation stays explicit:</strong> Dashboard never changes Composer dependencies from a browser request. Run the copied command in the TYPO3 project and then execute <code>vendor/bin/typo3 extension:setup</code>.</f:then>
-            <f:else><strong>Classic mode:</strong> install available extensions through TYPO3's Extension Manager, then return here to open them.</f:else>
-        </f:if>
-    </p>
     <p class="visually-hidden" aria-live="polite" data-copy-feedback></p>
 </div>
+</html>

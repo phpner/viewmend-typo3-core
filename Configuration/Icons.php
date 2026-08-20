@@ -9,4 +9,20 @@ return [
         'provider' => SvgIconProvider::class,
         'source' => 'EXT:viewmend_core/Resources/Public/Icons/viewmend-product-mark.svg',
     ],
+    'viewmend-product-auto-replies' => [
+        'provider' => SvgIconProvider::class,
+        'source' => 'EXT:viewmend_core/Resources/Public/Icons/product-auto-replies.svg',
+    ],
+    'viewmend-product-site-tracker' => [
+        'provider' => SvgIconProvider::class,
+        'source' => 'EXT:viewmend_core/Resources/Public/Icons/product-site-tracker.svg',
+    ],
+    'viewmend-product-inboxmend' => [
+        'provider' => SvgIconProvider::class,
+        'source' => 'EXT:viewmend_core/Resources/Public/Icons/product-inboxmend.svg',
+    ],
+    'viewmend-copy-command' => [
+        'provider' => SvgIconProvider::class,
+        'source' => 'EXT:viewmend_core/Resources/Public/Icons/copy-command.svg',
+    ],
 ];

@@ -15,9 +15,11 @@ final readonly class ProductDefinition
         public string $moduleIdentifier,
         public string $category,
         public int $position = 100,
+        public string $iconIdentifier = '',
+        public bool $installable = true,
     ) {}
 
-    /** @return array<string, int|string> */
+    /** @return array<string, bool|int|string> */
     public function toArray(): array
     {
         return [
@@ -29,6 +31,8 @@ final readonly class ProductDefinition
             'moduleIdentifier' => $this->moduleIdentifier,
             'category' => $this->category,
             'position' => $this->position,
+            'iconIdentifier' => $this->iconIdentifier,
+            'installable' => $this->installable,
         ];
     }
 }

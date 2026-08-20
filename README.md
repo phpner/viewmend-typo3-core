@@ -28,3 +28,14 @@ Every product is a separate Composer package and Git repository. It requires
 `viewmend/typo3-core`, registers its own direct child module below `viewmend`,
 and exposes one tagged `ProductProviderInterface` service. Products must never
 require another ViewMend product.
+
+Products may additionally implement `ProductDashboardProviderInterface` to
+expose a small, permission-aware operational summary. Dashboard data is
+optional and a failing product summary never makes the shared catalogue
+unavailable.
+
+The Dashboard gives installed products operational priority, keeps uninstalled
+products in a separate catalogue, and reveals Composer instructions only after
+an explicit **Install steps** action. Products that do not yet have a published
+package are labelled **In development** and never receive a non-working install
+command.
