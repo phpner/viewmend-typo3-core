@@ -1,0 +1,15 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  ViewMend\Typo3Core\:
+    resource: '../Classes/*'
+
+  ViewMend\Typo3Core\Backend\Controller\ProductsController:
+    public: true
+
+  ViewMend\Typo3Core\Product\ProductCatalog:
+    arguments:
+      $providers: !tagged_iterator viewmend.product

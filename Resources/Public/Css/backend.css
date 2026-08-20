@@ -1,0 +1,56 @@
+:root {
+  --vm-surface: var(--typo3-component-bg, #fff);
+  --vm-text: var(--typo3-text-color-base, #242424);
+  --vm-muted: var(--typo3-text-color-secondary, #6b6b6b);
+  --vm-border: var(--typo3-component-border-color, #d8d8d8);
+  --vm-accent: var(--typo3-primary-color, #d35400);
+  --vm-subtle: color-mix(in srgb, var(--vm-text) 5%, var(--vm-surface));
+  --vm-success: #287a3b;
+}
+
+.vm-products { max-width: 1180px; margin: 0 auto; color: var(--vm-text); }
+.vm-products__header { display: flex; align-items: end; justify-content: space-between; gap: 2rem; padding: 1.4rem 0 1rem; border-bottom: 1px solid var(--vm-border); }
+.vm-products__eyebrow { margin: 0; color: var(--vm-accent); font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.vm-products__header h1 { margin: .12rem 0 .25rem; font-size: clamp(1.55rem, 2vw, 2.1rem); line-height: 1.15; letter-spacing: -.025em; }
+.vm-products__header p:last-child { max-width: 720px; margin: 0; color: var(--vm-muted); }
+.vm-products__counts { display: flex; gap: 1rem; margin: 0; }
+.vm-products__counts div { min-width: 92px; padding-left: .8rem; border-left: 1px solid var(--vm-border); }
+.vm-products__counts dt { color: var(--vm-muted); font-size: .7rem; }
+.vm-products__counts dd { margin: .15rem 0 0; font-size: 1.25rem; font-weight: 750; font-variant-numeric: tabular-nums; }
+.vm-products__intro { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 54px; border-bottom: 1px solid var(--vm-border); }
+.vm-products__intro p { margin: 0; color: var(--vm-muted); }
+.vm-products__list { margin: 0; padding: 0; list-style: none; border-bottom: 1px solid var(--vm-border); }
+.vm-product { display: grid; grid-template-columns: 42px minmax(0, 1fr) 160px minmax(235px, auto); gap: 1rem; align-items: center; min-height: 86px; padding: .9rem 0; border-top: 1px solid var(--vm-border); }
+.vm-product:first-child { border-top: 0; }
+.vm-product__mark { display: grid; place-items: center; width: 38px; height: 38px; border: 1px solid var(--vm-border); border-radius: 8px; background: var(--vm-subtle); color: var(--vm-accent); font-size: .75rem; font-weight: 800; letter-spacing: .04em; }
+.vm-product__copy { min-width: 0; }
+.vm-product__copy h2 { margin: 0; font-size: 1rem; }
+.vm-product__copy p { max-width: 650px; margin: .25rem 0 0; color: var(--vm-muted); }
+.vm-product__copy small { display: block; margin-top: .35rem; color: var(--vm-muted); }
+.vm-product__state { display: inline-flex; align-items: center; gap: .42rem; color: var(--vm-muted); font-size: .76rem; font-weight: 650; }
+.vm-product__state::before { width: 8px; height: 8px; border: 1px solid currentColor; border-radius: 50%; content: ''; }
+.vm-product__state--installed { color: var(--vm-success); }
+.vm-product__state--installed::before { background: currentColor; }
+.vm-product__actions { display: flex; align-items: center; justify-content: flex-end; gap: .5rem; min-width: 0; }
+.vm-product__command { width: min(290px, 100%); min-height: 34px; padding: .35rem .5rem; border: 1px solid var(--vm-border); background: var(--vm-surface); color: var(--vm-muted); font-family: var(--typo3-font-family-code, ui-monospace, monospace); font-size: .72rem; }
+.vm-products__note { margin: 1rem 0 0; padding: .8rem 0 .8rem 1rem; border-left: 3px solid var(--vm-border); color: var(--vm-muted); }
+.vm-products__note strong { color: var(--vm-text); }
+
+@media (max-width: 900px) {
+  .vm-products__header { align-items: start; flex-direction: column; gap: 1rem; }
+  .vm-product { grid-template-columns: 42px 1fr auto; }
+  .vm-product__state { justify-self: end; }
+  .vm-product__actions { grid-column: 2 / -1; justify-content: flex-start; }
+}
+
+@media (max-width: 600px) {
+  .vm-products__intro { align-items: start; flex-direction: column; padding: .75rem 0; }
+  .vm-product { grid-template-columns: 38px 1fr; gap: .75rem; }
+  .vm-product__state, .vm-product__actions { grid-column: 2; justify-self: stretch; }
+  .vm-product__actions { align-items: stretch; flex-direction: column; }
+  .vm-product__command { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vm-products * { scroll-behavior: auto !important; transition: none !important; }
+}

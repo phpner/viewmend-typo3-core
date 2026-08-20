@@ -1,0 +1,29 @@
+{
+  "name": "viewmend/typo3-core",
+  "description": "Shared TYPO3 backend shell and product registry for ViewMend extensions.",
+  "type": "typo3-cms-extension",
+  "license": "GPL-2.0-or-later",
+  "require": {
+    "php": ">=8.2 <8.6",
+    "typo3/cms-backend": "~13.4.0 || ~14.3.0",
+    "typo3/cms-core": "~13.4.0 || ~14.3.0",
+    "typo3/cms-extbase": "~13.4.0 || ~14.3.0",
+    "typo3/cms-fluid": "~13.4.0 || ~14.3.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "ViewMend\\Typo3Core\\": "Classes/"
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "viewmend_core"
+    }
+  },
+  "archive": {
+    "exclude": [
+      "/Tests",
+      "/vendor"
+    ]
+  }
+}

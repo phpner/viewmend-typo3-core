@@ -1,0 +1,56 @@
+<div class="vm-products" data-viewmend-products>
+    <header class="vm-products__header">
+        <div>
+            <p class="vm-products__eyebrow">TYPO3 operations</p>
+            <h1>ViewMend products</h1>
+            <p>Install only the capabilities this TYPO3 project needs. Every product remains an independent package and release.</p>
+        </div>
+        <dl class="vm-products__counts" aria-label="Product status">
+            <div><dt>Installed</dt><dd>{installedCount}</dd></div>
+            <div><dt>Available</dt><dd>{availableCount}</dd></div>
+        </dl>
+    </header>
+
+    <div class="vm-products__intro">
+        <strong>Products</strong>
+        <p>Installed products open here; available products show their safe installation command.</p>
+    </div>
+
+    <ul class="vm-products__list">
+        <f:for each="{products}" as="product">
+            <li class="vm-product" data-product-row data-status="{product.status}">
+                <span class="vm-product__mark" aria-hidden="true">{product.mark}</span>
+                <div class="vm-product__copy">
+                    <h2>{product.title}</h2>
+                    <p>{product.description}</p>
+                    <small>{product.category} · <code>{product.composerPackage}</code></small>
+                </div>
+                <span class="vm-product__state vm-product__state--{product.status}">{product.statusLabel}</span>
+                <div class="vm-product__actions">
+                    <f:if condition="{product.accessible}">
+                        <f:then>
+                            <f:be.link route="{product.moduleIdentifier}" class="btn btn-primary">Open</f:be.link>
+                        </f:then>
+                        <f:else>
+                            <f:if condition="{product.installed}">
+                                <f:then><span class="text-muted">Ask an administrator for module access.</span></f:then>
+                                <f:else>
+                                    <input class="vm-product__command" data-install-command type="text" readonly value="{product.installCommand}" aria-label="Install command for {product.title}" />
+                                    <button type="button" class="btn btn-default" data-copy-command data-command="{product.installCommand}" data-product="{product.title}">Copy install command</button>
+                                </f:else>
+                            </f:if>
+                        </f:else>
+                    </f:if>
+                </div>
+            </li>
+        </f:for>
+    </ul>
+
+    <p class="vm-products__note">
+        <f:if condition="{composerMode}">
+            <f:then><strong>Composer mode:</strong> ViewMend never changes project dependencies from a browser request. Run the copied command in the TYPO3 project and then execute <code>vendor/bin/typo3 extension:setup</code>.</f:then>
+            <f:else><strong>Classic mode:</strong> install available extensions through TYPO3's Extension Manager, then return here to open them.</f:else>
+        </f:if>
+    </p>
+    <p class="visually-hidden" aria-live="polite" data-copy-feedback></p>
+</div>
