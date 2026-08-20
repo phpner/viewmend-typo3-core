@@ -33,4 +33,17 @@ final class DashboardContractTest extends TestCase
         self::assertStringContainsString('product.installCommand', $template);
         self::assertStringNotContainsString('composer require {product.composerPackage}', $template);
     }
+
+    public function testDashboardUsesTheViewMendVmBrandMark(): void
+    {
+        $icon = file_get_contents(dirname(__DIR__, 2) . '/Resources/Public/Icons/viewmend-product-mark.svg');
+
+        self::assertIsString($icon);
+        self::assertStringContainsString('viewBox="0 0 21 21"', $icon);
+        self::assertStringContainsString('id="viewmend-vm-v"', $icon);
+        self::assertStringContainsString('id="viewmend-vm-m"', $icon);
+        self::assertStringContainsString('fill="url(#viewmend-vm-v)"', $icon);
+        self::assertStringContainsString('fill="url(#viewmend-vm-m)"', $icon);
+        self::assertStringNotContainsString('currentColor', $icon);
+    }
 }

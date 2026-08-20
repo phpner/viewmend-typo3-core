@@ -7,3 +7,4 @@
 - Product catalog with installed, access-restricted, and available states.
 - Public `ProductProviderInterface` and `viewmend.product` service tag.
 - Safe Composer-mode installation guidance without backend dependency mutation.
+- Replace the generic module mark with the official ViewMend VM gradient logo.
