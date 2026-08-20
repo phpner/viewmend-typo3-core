@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * SPDX-License-Identifier: GPL-2.0-or-later
+ */
+
 declare(strict_types=1);
 
 namespace ViewMend\Typo3Core\Tests\Unit;
@@ -63,7 +67,7 @@ final class DashboardContractTest extends TestCase
         self::assertStringContainsString("'viewmend/typo3-auto-replies'", $catalog);
         self::assertStringContainsString("'viewmend/typo3-site-tracker'", $catalog);
         self::assertStringContainsString("'viewmend/typo3-inboxmend'", $catalog);
-        self::assertStringContainsString('installable: false', $catalog);
+        self::assertSame(2, substr_count($catalog, 'installable: false'));
         self::assertSame(3, substr_count($catalog, 'new ProductDefinition('));
     }
 

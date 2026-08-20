@@ -3,6 +3,27 @@
   "description": "Shared TYPO3 backend shell and product registry for ViewMend extensions.",
   "type": "typo3-cms-extension",
   "license": "GPL-2.0-or-later",
+  "homepage": "https://viewmend.com/",
+  "keywords": [
+    "dashboard",
+    "extension-ecosystem",
+    "product-registry",
+    "typo3",
+    "viewmend"
+  ],
+  "authors": [
+    {
+      "name": "ViewMend",
+      "email": "support@viewmend.com",
+      "homepage": "https://viewmend.com/",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "support@viewmend.com",
+    "issues": "https://github.com/phpner/viewmend-typo3-core/issues",
+    "source": "https://github.com/phpner/viewmend-typo3-core"
+  },
   "require": {
     "php": ">=8.2 <8.6",
     "typo3/cms-backend": "~13.4.0 || ~14.3.0",

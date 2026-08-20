@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * SPDX-License-Identifier: GPL-2.0-or-later
+ */
+
 declare(strict_types=1);
 
 $EM_CONF[$_EXTKEY] = [

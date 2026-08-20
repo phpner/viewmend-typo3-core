@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * SPDX-License-Identifier: GPL-2.0-or-later
+ */
+
 declare(strict_types=1);
 
 namespace ViewMend\Typo3Core\Product;
@@ -96,6 +100,7 @@ final readonly class ProductCatalog
                 category: 'Messaging',
                 position: 10,
                 iconIdentifier: 'viewmend-product-auto-replies',
+                installable: false,
             ),
             'site-tracker' => new ProductDefinition(
                 identifier: 'site-tracker',

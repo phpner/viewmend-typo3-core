@@ -12,3 +12,7 @@
 - Installed-first Dashboard, status filters, dedicated product icons, and an
   accessible installation dialog.
 - Replace the generic module mark with the official ViewMend VM gradient logo.
+- Publish complete integration, compatibility, support, and development
+  documentation for product providers.
+- Offer installation steps only for products currently available through
+  Composer.
