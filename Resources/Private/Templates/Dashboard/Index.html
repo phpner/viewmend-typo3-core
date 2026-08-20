@@ -1,7 +1,6 @@
 <div class="vm-products" data-viewmend-products>
     <header class="vm-products__header">
         <div>
-            <p class="vm-products__eyebrow">Independent TYPO3 products</p>
             <h1>ViewMend Dashboard</h1>
             <p>Open installed products or add another capability. Each product is installed, updated, and released independently.</p>
         </div>
@@ -19,7 +18,6 @@
     <ul class="vm-products__list">
         <f:for each="{products}" as="product">
             <li class="vm-product" data-product-row data-status="{product.status}">
-                <span class="vm-product__mark" aria-hidden="true">{product.mark}</span>
                 <div class="vm-product__copy">
                     <h2>{product.title}</h2>
                     <p>{product.description}</p>
@@ -29,7 +27,7 @@
                 <div class="vm-product__actions">
                     <f:if condition="{product.accessible}">
                         <f:then>
-                            <f:be.link route="{product.moduleIdentifier}" class="btn btn-primary">Open product</f:be.link>
+                            <f:be.link route="{product.moduleIdentifier}" class="btn btn-primary">Open</f:be.link>
                         </f:then>
                         <f:else>
                             <f:if condition="{product.installed}">

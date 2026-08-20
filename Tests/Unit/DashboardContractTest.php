@@ -31,6 +31,10 @@ final class DashboardContractTest extends TestCase
         self::assertStringContainsString('ViewMend Dashboard', $template);
         self::assertStringContainsString('product.accessible', $template);
         self::assertStringContainsString('product.installCommand', $template);
+        self::assertStringContainsString('>Open</f:be.link>', $template);
+        self::assertStringNotContainsString('Independent TYPO3 products', $template);
+        self::assertStringNotContainsString('vm-product__mark', $template);
+        self::assertStringNotContainsString('Open product', $template);
         self::assertStringNotContainsString('composer require {product.composerPackage}', $template);
     }
 

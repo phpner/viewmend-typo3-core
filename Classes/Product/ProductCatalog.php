@@ -44,7 +44,6 @@ final readonly class ProductCatalog
             $product['status'] = $installed ? ($accessible ? 'installed' : 'restricted') : 'available';
             $product['statusLabel'] = $installed ? ($accessible ? 'Installed' : 'Installed · no access') : 'Available';
             $product['installCommand'] = 'composer require ' . $definition->composerPackage;
-            $product['mark'] = $this->mark($definition->title);
             $products[] = $product;
         }
 
@@ -88,16 +87,4 @@ final readonly class ProductCatalog
         ];
     }
 
-    private function mark(string $title): string
-    {
-        $words = preg_split('/[^A-Za-z0-9]+/', trim($title), -1, PREG_SPLIT_NO_EMPTY);
-        if (!is_array($words) || $words === []) {
-            return 'VM';
-        }
-        if (count($words) > 1) {
-            return strtoupper(substr($words[0], 0, 1) . substr($words[1], 0, 1));
-        }
-
-        return strtoupper(substr($words[0], 0, 2));
-    }
 }
