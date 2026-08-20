@@ -12,7 +12,7 @@
   --vm-action: #075f72;
   --vm-action-hover: #08788e;
   --vm-action-text: #fff;
-  --vm-success: var(--typo3-state-success-color, #67c98a);
+  --vm-success: #72d99a;
   --vm-focus: var(--typo3-focus-ring-color, #78a9ff);
   --vm-radius: var(--typo3-component-border-radius, 10px);
 }
@@ -182,9 +182,16 @@
   display: inline-flex;
   align-items: center;
   gap: .42rem;
+  min-height: 25px;
+  padding: 0 .65rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
   color: var(--vm-muted);
   font-size: .72rem;
   font-weight: 700;
+  letter-spacing: .055em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .vm-status::before {
@@ -196,6 +203,8 @@
 }
 
 .vm-status--installed {
+  border-color: color-mix(in srgb, var(--vm-success) 38%, transparent);
+  background: color-mix(in srgb, var(--vm-success) 12%, transparent);
   color: var(--vm-success);
 }
 

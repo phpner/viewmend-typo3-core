@@ -1,8 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-labelledby="viewmend-site-tracker-title">
   <title id="viewmend-site-tracker-title">Site Tracker</title>
-  <path d="M10 48V17l11 9 11-15 10 18 12-8v27" stroke="#57beab" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M8 53h48" stroke="#286dec" stroke-width="4" stroke-linecap="round"/>
-  <circle cx="21" cy="26" r="3.5" fill="#57beab"/>
-  <circle cx="32" cy="11" r="3.5" fill="#286dec"/>
-  <circle cx="42" cy="29" r="3.5" fill="#57beab"/>
+  <rect x="6.5" y="8" width="51" height="44" rx="7" stroke="#286dec" stroke-width="3.5"/>
+  <path d="M8 19.5h48" stroke="#286dec" stroke-width="3.5"/>
+  <circle cx="14" cy="14" r="1.8" fill="#57beab"/>
+  <circle cx="20" cy="14" r="1.8" fill="#57beab" opacity=".68"/>
+  <path d="m13 42 8-8 8 5 10-12 12 7" stroke="#57beab" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="39" cy="27" r="5" fill="#1d1e24" stroke="#286dec" stroke-width="3"/>
+  <circle cx="39" cy="27" r="1.8" fill="#72d99a"/>
 </svg>
