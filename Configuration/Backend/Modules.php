@@ -11,7 +11,7 @@ return [
         'access' => 'user',
         'workspaces' => 'live',
         'path' => '/module/web/viewmend',
-        'iconIdentifier' => 'viewmend-module',
+        'iconIdentifier' => 'viewmend-product-mark',
         'labels' => [
             'title' => 'ViewMend',
             'description' => 'Installed ViewMend products and compatible additions.',
@@ -28,7 +28,7 @@ return [
         'access' => 'user',
         'workspaces' => 'live',
         'path' => '/module/web/viewmend/products',
-        'iconIdentifier' => 'viewmend-module',
+        'iconIdentifier' => 'viewmend-product-mark',
         'labels' => [
             'title' => 'Products',
             'description' => 'Installed and available ViewMend products.',
