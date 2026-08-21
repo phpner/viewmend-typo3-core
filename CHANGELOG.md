@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3 - 2026-08-21
+
+- Make release metadata compatible with TER and TYPO3 14 classic installations.
+
 ## 1.0.2 - 2026-08-21
 
 - Improve TYPO3 Extension Repository product discovery metadata.

@@ -48,7 +48,11 @@
   },
   "extra": {
     "typo3/cms": {
-      "extension-key": "viewmend_core"
+      "extension-key": "viewmend_core",
+      "version": "1.0.3",
+      "Package": {
+        "providesPackages": {}
+      }
     }
   },
   "archive": {
