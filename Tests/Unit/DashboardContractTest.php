@@ -95,4 +95,18 @@ final class DashboardContractTest extends TestCase
         self::assertStringContainsString('stroke-width="3.5"', $icon);
         self::assertStringNotContainsString('<linearGradient', $icon);
     }
+
+    public function testBackendShellKeepsProductNavigationCompact(): void
+    {
+        $configuration = file_get_contents(dirname(__DIR__, 2) . '/ext_localconf.php');
+        $stylesheet = file_get_contents(dirname(__DIR__, 2) . '/Resources/Public/Css/backend-shell.css');
+
+        self::assertIsString($configuration);
+        self::assertIsString($stylesheet);
+        self::assertStringContainsString('PKG:viewmend/typo3-core:Resources/Public/Css/backend-shell.css', $configuration);
+        self::assertStringContainsString('calc(var(--modulemenu-icon-size) * .8)', $stylesheet);
+        self::assertStringContainsString('viewmend_auto_replies', $stylesheet);
+        self::assertStringContainsString('viewmend_mailings', $stylesheet);
+        self::assertStringNotContainsString('content:', $stylesheet);
+    }
 }

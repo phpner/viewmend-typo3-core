@@ -1,0 +1,20 @@
+.modulemenu-action[data-modulemenu-identifier^="viewmend_"] .modulemenu-icon .icon,
+.modulemenu-action[data-modulemenu-identifier="tools_viewmendtracker"] .modulemenu-icon .icon {
+  --icon-size: calc(var(--modulemenu-icon-size) * .8);
+}
+
+.modulemenu-group-container > li:has(> .modulemenu-action[data-modulemenu-identifier="viewmend_auto_replies"]),
+.modulemenu-group-container > li:has(> .modulemenu-action[data-modulemenu-identifier="viewmend_mailings"]) {
+  padding-inline-start: .35rem;
+  border-inline-start: 2px solid color-mix(in srgb, var(--typo3-scaffold-sidebar-color) 28%, transparent);
+}
+
+.modulemenu-group-container > li:has(> .modulemenu-action[data-modulemenu-identifier="viewmend_auto_replies"]) {
+  margin-block-start: .35rem;
+  padding-block-start: .2rem;
+}
+
+.modulemenu-group-container > li:has(> .modulemenu-action[data-modulemenu-identifier="viewmend_mailings"]) {
+  margin-block-end: .35rem;
+  padding-block-end: .2rem;
+}
