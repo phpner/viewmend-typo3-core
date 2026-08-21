@@ -4,7 +4,7 @@ const navigationGroups = [
   {
     identifier: 'viewmend_email',
     title: 'Email',
-    modules: ['viewmend_auto_replies', 'viewmend_mailings'],
+    modules: ['viewmend_auto_replies', 'viewmend_mailings', 'viewmend_inboxmend'],
   },
 ];
 

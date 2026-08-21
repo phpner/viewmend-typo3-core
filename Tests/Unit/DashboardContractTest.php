@@ -112,7 +112,7 @@ final class DashboardContractTest extends TestCase
         self::assertStringContainsString("JavaScriptModuleInstruction::create('@viewmend/core/module-menu.js')", $listener);
         self::assertStringContainsString("identifier: 'viewmend_email'", $menu);
         self::assertStringContainsString("title: 'Email'", $menu);
-        self::assertStringContainsString("modules: ['viewmend_auto_replies', 'viewmend_mailings']", $menu);
+        self::assertStringContainsString("modules: ['viewmend_auto_replies', 'viewmend_mailings', 'viewmend_inboxmend']", $menu);
         self::assertStringContainsString("moduleItem.dataset.modulemenuLevel = '3'", $menu);
         self::assertStringContainsString("button.dataset.modulemenuCollapsible = 'true'", $menu);
         self::assertStringNotContainsString('content:', $stylesheet);
