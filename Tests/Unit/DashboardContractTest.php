@@ -61,7 +61,7 @@ final class DashboardContractTest extends TestCase
         self::assertStringNotContainsString('currentColor', $icon);
     }
 
-    public function testOfficialCatalogSeparatesInstallableAndPlannedProducts(): void
+    public function testOfficialCatalogExposesPublishedProductsAsInstallable(): void
     {
         $catalog = file_get_contents(dirname(__DIR__, 2) . '/Classes/Product/ProductCatalog.php');
 
@@ -70,7 +70,7 @@ final class DashboardContractTest extends TestCase
         self::assertStringContainsString("'viewmend/typo3-site-tracker'", $catalog);
         self::assertStringContainsString("'viewmend/typo3-mailings'", $catalog);
         self::assertStringContainsString("'viewmend/typo3-inboxmend'", $catalog);
-        self::assertSame(3, substr_count($catalog, 'installable: false'));
+        self::assertStringNotContainsString('installable: false', $catalog);
         self::assertSame(4, substr_count($catalog, 'new ProductDefinition('));
     }
 

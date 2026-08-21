@@ -100,7 +100,6 @@ final readonly class ProductCatalog
                 category: 'Messaging',
                 position: 10,
                 iconIdentifier: 'viewmend-product-auto-replies',
-                installable: false,
             ),
             'site-tracker' => new ProductDefinition(
                 identifier: 'site-tracker',
@@ -123,7 +122,6 @@ final readonly class ProductCatalog
                 category: 'Messaging',
                 position: 15,
                 iconIdentifier: 'viewmend-product-mailings',
-                installable: false,
             ),
             'inboxmend' => new ProductDefinition(
                 identifier: 'inboxmend',
@@ -135,7 +133,6 @@ final readonly class ProductCatalog
                 category: 'Submissions',
                 position: 30,
                 iconIdentifier: 'viewmend-product-inboxmend',
-                installable: false,
             ),
         ];
     }

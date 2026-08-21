@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.1 - 2026-08-21
+
+- Expose the published Auto-replies, Mailings, and InboxMend packages as
+  installable from the Dashboard.
+
 ## 1.0.0 - 2026-08-20
 
 - Shared ViewMend backend entry for TYPO3 13.4 and 14.3.
