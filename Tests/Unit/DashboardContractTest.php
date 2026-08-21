@@ -21,10 +21,12 @@ final class DashboardContractTest extends TestCase
         self::assertArrayHasKey('viewmend', $modules);
         self::assertArrayNotHasKey('parent', $modules['viewmend']);
         self::assertArrayNotHasKey('path', $modules['viewmend']);
+        self::assertSame('viewmend-product-mark', $modules['viewmend']['iconIdentifier']);
         self::assertArrayHasKey('viewmend_dashboard', $modules);
         self::assertSame('viewmend', $modules['viewmend_dashboard']['parent']);
         self::assertSame(['before' => '*'], $modules['viewmend_dashboard']['position']);
         self::assertSame('/module/viewmend/dashboard', $modules['viewmend_dashboard']['path']);
+        self::assertSame('viewmend-dashboard', $modules['viewmend_dashboard']['iconIdentifier']);
     }
 
     public function testDashboardShowsAvailableProductsWithoutDeadNavigationLinks(): void
@@ -75,8 +77,20 @@ final class DashboardContractTest extends TestCase
     {
         $icons = require dirname(__DIR__, 2) . '/Configuration/Icons.php';
 
+        self::assertArrayHasKey('viewmend-dashboard', $icons);
         self::assertArrayHasKey('viewmend-product-auto-replies', $icons);
         self::assertArrayHasKey('viewmend-product-site-tracker', $icons);
         self::assertArrayHasKey('viewmend-product-inboxmend', $icons);
+    }
+
+    public function testDashboardIconUsesTheProductNavigationStrokeStyle(): void
+    {
+        $icon = file_get_contents(dirname(__DIR__, 2) . '/Resources/Public/Icons/dashboard.svg');
+
+        self::assertIsString($icon);
+        self::assertStringContainsString('<title id="viewmend-dashboard-title">Dashboard</title>', $icon);
+        self::assertSame(4, substr_count($icon, '<rect'));
+        self::assertStringContainsString('stroke-width="3.5"', $icon);
+        self::assertStringNotContainsString('<linearGradient', $icon);
     }
 }

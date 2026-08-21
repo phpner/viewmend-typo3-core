@@ -13,6 +13,10 @@ return [
         'provider' => SvgIconProvider::class,
         'source' => 'EXT:viewmend_core/Resources/Public/Icons/viewmend-product-mark.svg',
     ],
+    'viewmend-dashboard' => [
+        'provider' => SvgIconProvider::class,
+        'source' => 'EXT:viewmend_core/Resources/Public/Icons/dashboard.svg',
+    ],
     'viewmend-product-auto-replies' => [
         'provider' => SvgIconProvider::class,
         'source' => 'EXT:viewmend_core/Resources/Public/Icons/product-auto-replies.svg',

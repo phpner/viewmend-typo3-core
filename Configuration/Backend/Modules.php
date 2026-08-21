@@ -25,7 +25,7 @@ return [
         'access' => 'user',
         'workspaces' => 'live',
         'path' => '/module/viewmend/dashboard',
-        'iconIdentifier' => 'viewmend-product-mark',
+        'iconIdentifier' => 'viewmend-dashboard',
         'labels' => [
             'title' => 'Dashboard',
             'description' => 'Installed and available ViewMend products.',
