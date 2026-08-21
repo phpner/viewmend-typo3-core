@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-labelledby="viewmend-auto-replies-title">
   <title id="viewmend-auto-replies-title">Auto-replies</title>
-  <rect x="6" y="8" width="38" height="27" rx="6" stroke="#286dec" stroke-width="3.5"/>
+  <rect x="6" y="8" width="39" height="28" rx="6" stroke="#286dec" stroke-width="3.5"/>
   <path d="m9 13 16 11 16-11" stroke="#286dec" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M28 54c5-10 14-15 26-15h4m-8-8 8 8-8 8" stroke="#57beab" stroke-width="3.25" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M28 56c5-11 14-16 26-16h4m-8-8 8 8-8 8" stroke="#57beab" stroke-width="3.25" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

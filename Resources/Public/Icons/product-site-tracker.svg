@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-labelledby="viewmend-site-tracker-title">
   <title id="viewmend-site-tracker-title">Site Tracker</title>
-  <rect x="6.5" y="8" width="51" height="44" rx="7" stroke="#286dec" stroke-width="3.5"/>
+  <rect x="6" y="8" width="52" height="48" rx="7" stroke="#286dec" stroke-width="3.5"/>
   <path d="M8 19.5h48" stroke="#286dec" stroke-width="3.5"/>
   <circle cx="14" cy="14" r="1.8" fill="#57beab"/>
   <circle cx="20" cy="14" r="1.8" fill="#57beab" opacity=".68"/>
