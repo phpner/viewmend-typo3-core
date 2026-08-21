@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2 - 2026-08-21
+
+- Improve TYPO3 Extension Repository product discovery metadata.
+- Align classic Extension Manager PHP compatibility with Composer metadata.
+
 ## 1.0.1 - 2026-08-21
 
 - Expose the published Auto-replies, Mailings, and InboxMend packages as

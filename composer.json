@@ -1,6 +1,6 @@
 {
   "name": "viewmend/typo3-core",
-  "description": "Shared TYPO3 backend shell and product registry for ViewMend extensions.",
+  "description": "ViewMend Core - Manage ViewMend TYPO3 extensions from one shared backend dashboard with unified navigation and product discovery.",
   "type": "typo3-cms-extension",
   "license": "GPL-2.0-or-later",
   "homepage": "https://viewmend.com/",
@@ -57,6 +57,7 @@
       "/.gitignore",
       "/.github",
       "/.idea",
+      "/.php-cs-fixer.cache",
       "/.php-cs-fixer.dist.php",
       "/.phpstan-cache",
       "/.phpunit.cache",
