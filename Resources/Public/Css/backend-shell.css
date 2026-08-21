@@ -3,18 +3,16 @@
   --icon-size: calc(var(--modulemenu-icon-size) * .8);
 }
 
-.modulemenu-group-container > li:has(> .modulemenu-action[data-modulemenu-identifier="viewmend_auto_replies"]),
-.modulemenu-group-container > li:has(> .modulemenu-action[data-modulemenu-identifier="viewmend_mailings"]) {
-  padding-inline-start: .35rem;
-  border-inline-start: 2px solid color-mix(in srgb, var(--typo3-scaffold-sidebar-color) 28%, transparent);
+.vm-modulemenu-group > .modulemenu-action .vm-modulemenu-group__icon {
+  display: grid;
+  place-items: center;
 }
 
-.modulemenu-group-container > li:has(> .modulemenu-action[data-modulemenu-identifier="viewmend_auto_replies"]) {
-  margin-block-start: .35rem;
-  padding-block-start: .2rem;
+.vm-modulemenu-group > .modulemenu-action .vm-modulemenu-group__icon svg {
+  width: 80%;
+  height: 80%;
 }
 
-.modulemenu-group-container > li:has(> .modulemenu-action[data-modulemenu-identifier="viewmend_mailings"]) {
-  margin-block-end: .35rem;
-  padding-block-end: .2rem;
+.vm-modulemenu-group > .modulemenu-group-container {
+  margin-block-start: var(--modulemenu-spacer);
 }
