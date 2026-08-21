@@ -11,8 +11,7 @@ $finder = PhpCsFixer\Finder::create()
         __DIR__ . '/Classes',
         __DIR__ . '/Configuration',
         __DIR__ . '/Tests',
-    ])
-    ->append([__DIR__ . '/ext_emconf.php']);
+    ]);
 
 return (new PhpCsFixer\Config())
     ->setRiskyAllowed(true)

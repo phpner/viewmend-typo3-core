@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4 - 2026-08-21
+
+- Keep TER control metadata outside the strict-types source formatter.
+
 ## 1.0.3 - 2026-08-21
 
 - Make release metadata compatible with TER and TYPO3 14 classic installations.
