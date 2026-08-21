@@ -95,7 +95,7 @@ const enhanceGroup = (menu, group, collapsed) => {
   const expanded = collapsed[group.identifier] !== true;
   const { item, button, list } = groupMarkup(group, expanded);
   item.dataset.viewmendNavigationGroup = group.identifier;
-  parentList.insertBefore(item, moduleItems[0]);
+  parentList.append(item);
 
   moduleItems.forEach((moduleItem) => {
     moduleItem.dataset.modulemenuLevel = '3';

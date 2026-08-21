@@ -115,6 +115,7 @@ final class DashboardContractTest extends TestCase
         self::assertStringContainsString("modules: ['viewmend_auto_replies', 'viewmend_mailings', 'viewmend_inboxmend']", $menu);
         self::assertStringContainsString("moduleItem.dataset.modulemenuLevel = '3'", $menu);
         self::assertStringContainsString("button.dataset.modulemenuCollapsible = 'true'", $menu);
+        self::assertStringContainsString('parentList.append(item)', $menu);
         self::assertStringNotContainsString('content:', $stylesheet);
     }
 }
