@@ -68,9 +68,10 @@ final class DashboardContractTest extends TestCase
         self::assertIsString($catalog);
         self::assertStringContainsString("'viewmend/typo3-auto-replies'", $catalog);
         self::assertStringContainsString("'viewmend/typo3-site-tracker'", $catalog);
+        self::assertStringContainsString("'viewmend/typo3-mailings'", $catalog);
         self::assertStringContainsString("'viewmend/typo3-inboxmend'", $catalog);
-        self::assertSame(2, substr_count($catalog, 'installable: false'));
-        self::assertSame(3, substr_count($catalog, 'new ProductDefinition('));
+        self::assertSame(3, substr_count($catalog, 'installable: false'));
+        self::assertSame(4, substr_count($catalog, 'new ProductDefinition('));
     }
 
     public function testDashboardUsesDedicatedProductIcons(): void
@@ -80,6 +81,7 @@ final class DashboardContractTest extends TestCase
         self::assertArrayHasKey('viewmend-dashboard', $icons);
         self::assertArrayHasKey('viewmend-product-auto-replies', $icons);
         self::assertArrayHasKey('viewmend-product-site-tracker', $icons);
+        self::assertArrayHasKey('viewmend-product-mailings', $icons);
         self::assertArrayHasKey('viewmend-product-inboxmend', $icons);
     }
 

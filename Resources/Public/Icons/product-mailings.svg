@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-labelledby="viewmend-mailings-title">
+  <title id="viewmend-mailings-title">Mailings</title>
+  <rect x="6" y="9" width="37" height="27" rx="5" stroke="#286dec" stroke-width="3.5"/>
+  <path d="m9 14 15.5 10.5L40 14" stroke="#286dec" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M22 52h31M44 43l9 9-9 9" stroke="#57beab" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M14 45h15" stroke="#57beab" stroke-width="3.5" stroke-linecap="round"/>
+</svg>

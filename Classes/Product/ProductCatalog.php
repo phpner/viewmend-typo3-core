@@ -113,6 +113,18 @@ final readonly class ProductCatalog
                 position: 20,
                 iconIdentifier: 'viewmend-product-site-tracker',
             ),
+            'mailings' => new ProductDefinition(
+                identifier: 'mailings',
+                title: 'Mailings',
+                description: 'Create targeted email mailings for TYPO3 frontend users with controlled delivery.',
+                composerPackage: 'viewmend/typo3-mailings',
+                extensionKey: 'viewmend_mailings',
+                moduleIdentifier: 'viewmend_mailings',
+                category: 'Messaging',
+                position: 15,
+                iconIdentifier: 'viewmend-product-mailings',
+                installable: false,
+            ),
             'inboxmend' => new ProductDefinition(
                 identifier: 'inboxmend',
                 title: 'InboxMend',

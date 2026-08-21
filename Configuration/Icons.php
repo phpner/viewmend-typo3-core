@@ -25,6 +25,10 @@ return [
         'provider' => SvgIconProvider::class,
         'source' => 'EXT:viewmend_core/Resources/Public/Icons/product-site-tracker.svg',
     ],
+    'viewmend-product-mailings' => [
+        'provider' => SvgIconProvider::class,
+        'source' => 'EXT:viewmend_core/Resources/Public/Icons/product-mailings.svg',
+    ],
     'viewmend-product-inboxmend' => [
         'provider' => SvgIconProvider::class,
         'source' => 'EXT:viewmend_core/Resources/Public/Icons/product-inboxmend.svg',
